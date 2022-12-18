@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta
+      name="description"
+      content="Toxic Text Detection using Machine Learning"
+    />
+    <meta name="author" content="Francesco Natali" />
+    <title>Ai Content Toxicity Detection</title>
+    <link rel="preload" href="./css/tailwind.css" as="style" />
+    <link rel="stylesheet" href="./css/tailwind.css" />
+    <link rel="preload" href="./css/extra.css" as="style" />
+    <link rel="stylesheet" href="css/extra.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Permanent+Marker&amp;display=swap&amp;text=↑→↓←"
+      rel="stylesheet"
+    />
+ 
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.11.0/dist/tf.min.js"
+      type="text/javascript"
+    ></script>
+    <script type="module" src="./model/model.js"></script>
+    <script type="text/javascript" src="./js/script.js" defer></script>
+  </head>
+
+  <body>
+    <div>
+      <div>
+        <div class="bg-gray-20 from-gray-20 py-2"></div>
+        <div
+          class="border-b border-gray-30/0 w-full md:my-4 py-6 md:py-2 bg-white/80 backdrop-blur sticky top-0 z-10 transition-colors"
+        >
+          <header class="px-6 sm:px-8 container mx-auto relative flex items-center">
+            <nav class="fixed flex-1 inset-0 md:block relative z-10">
+              <ul>
+                <li class="md:mx-4 md:pb-0 md:pt-0 mx-7">
+                  <strong>Ashiq Coder</strong>
+                </li>
+              </ul>
+            </nav>
+            <nav class="justify-end">
+              <ul class="md:flex md:items-center">
+                <li>
+                  <a
+                    href="http://github.com/theFutureGuy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="block border focus:ring-0 hover:bg-gray-90 hover:border-gray-90 hover:text-white px-4 py-2 rounded text-center text-gray-90"
+                    >My GitHub</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </header>
+        </div>
+        <main>
+          <section
+            class="container gap-x-8 gap-y-6 grid lg:pb-64 lg:pt-32 md:text-center mx-auto pb-16 pt-8 px-6 sm:gap-y-12 sm:grid sm:grid-cols-12 sm:pb-32 sm:pt-16 sm:px-8"
+          >
+            <h1
+              class="sm:col-start-1 sm:col-end-13 xl:col-start-3 xl:col-end-11 text-5xl sm:text-7xl md:text-8xl md:leading-none font-bold text-gray-90"
+            >
+              Toxic<br />Text Detection
+            </h1>
+            <div class="text-xl sm:text-2xl text-gray-70 sm:col-start-1 sm:col-end-13 lg:col-start-3 lg:col-end-11">
+             Type here
+            </div>
+            <div
+              class="text-xl sm:text-2xl text-gray-70 sm:col-start-1 sm:col-end-13 lg:col-start-3 lg:col-end-11 lg:mt-2">
+              <div
+                id="comment"
+                class="comment focus:ring-0 text-gray-80"
+                contenteditable
+                autofocus
+              ></div>
+              <button
+                id="post"
+                type="button"
+                class="focus:ring-0 hover:bg-darkBlue-50 text-xl sm:text-2xl bg-darkBlue-60 text-center text-white w-full p-4 rounded-md max-w-xs mt-8"
+              >
+                Check here
+              </button>
+            </div>
+            <div id="commentsList" class="col-span-full pt-6">
+              <div
+                class="relative col-span-full rounded-2xl overflow-hidden border border-gray-80 border-opacity-20 shadow-2xl mt-8 p-4 md:text-2xl text-gray-80"
+              >
+                <p>Machine Learning is so amazing!</p>
+              </div>
+              <div
+                class="relative col-span-full rounded-2xl overflow-hidden border border-gray-80 border-opacity-20 shadow-2xl mt-8 p-4 md:text-2xl text-gray-80 toxic"
+              >
+                <p>bad fuck bitch noo</p>
+              </div>
+            </div>
+          </section>
+          <!-- <section class="bg-gray-20 py-2"></section> -->
+          
+          <!-- <section class="bg-gray-20 py-2"></section>
+       -->
+          <section
+            class="sm:grid sm:grid-cols-12 gap-x-8 px-6 sm:px-8 pt-24 pb-24 sm:pb-48 lg:pb-64 container mx-auto gap-8 lg:gap-12 grid"
+          >
+            <h2
+              class="text-4xl sm:text-7xl whitespace-pre-line font-bold sm:col-start-1 sm:col-end-13 lg:col-start-2 lg:col-end-12"
+            >
+              About the model
+            </h2>
+            <p
+              class="text-xl sm:text-2xl sm:col-start-1 sm:col-end-13 lg:col-start-2 lg:col-end-9 text-gray-70"
+            >
+              The model is trained using the
+              <a
+                href="https://www.tensorflow.org/lite/models/modify/model_maker/text_classification"
+                target="_blank"
+                class="font-semibold text-lightBlue-80"
+                >Model Maker's average word embedding algorithm,</a
+              >
+              trained on a custom dataset of more than 2 thousands classified
+              comments from Youtube and other sources.
+              <br /><br />
+              I trained the original Python model using
+              <span class="text-gray-80 font-semibold">Google Colab</span>, then
+              converted it in the TensorFlowJS format to be used in the browser.
+            </p>
+          </section>
+
+        <footer class="md:py-12 py-6 xl:py-16">
+          <div class="container mx-auto px-6 sm:px-8">
+            <div class="flex flex-col sm:flex-row items-baseline mt-4">
+              <p class="flex-1 text-gray-70">
+                refernce at&nbsp;
+                <img
+                  src="./img/tensorflow.png"
+                  alt="TensorFlow"
+                  class="h-6 inline-block"
+                />
+              </p>
+              <nav class="mt-4 sm:mt-0">
+                <ul class="flex flex-row flex-wrap sm:flex-nowrap">
+                  <li>
+                    <a
+                      class="text-gray-70 hover:text-gray-60"
+                      href="mailto:abbas.aashiq@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      >Contact</a
+                    >
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>
